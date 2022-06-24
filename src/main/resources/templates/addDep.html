@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+	<title>Add Department</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+
+	<div class="container">
+   		<div>
+   			<h1>Formulaire d'ajout Departement</h1>
+   		</div>
+     
+		<form th:action="@{/saveDep}" th:object="${dep}" method="post">
+   			<div class="form-group">
+				<label>Nom Departement</label>
+				<div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('nomDep')}" th:errors="*{nomDep}"></div>
+				<input type="text" class="form-control" th:field="*{nomDep}">
+  			</div>
+    
+ 			<!-- <div class="form-group">
+					<label>Volume horaire</label>
+					<div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('vhor')}" th:errors="*{vhor}"></div>
+					<input type="text" class="form-control" th:field="*{vhor}">
+			</div> -->
+    
+	     <div>
+	     <input type="submit" value="Add" class="btn btn-primary" />
+	     </div>
+   	</form>
+   </div>
+
+
+
+
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+</body>
+</html>

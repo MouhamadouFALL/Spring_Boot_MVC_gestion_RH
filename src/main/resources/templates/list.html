@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>list Department</title>
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+	</head>
+	<body>
+	
+	<div class="container">
+	
+		<div>
+			<p><a th:href="@{/addDep}" class="btn btn-success">Add Department</a></p>
+			<p><a th:href="@{/list}" class="btn btn-success">Home page</a></p>
+		</div>
+	
+		<div>
+			
+			<table class="table table-secondary table-striped">
+			  <thead>
+			    <tr class="table-success">
+			      <th scope="col">ID</th>
+			      <th scope="col">Department Name</th>
+			      <th scope="col">Update</th>
+			      <th scope="col">Delete</th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			    <tr th:each="dep : ${deps}">
+			      <th scope="row" th:text="${dep.id}"></th>
+			      <td th:text="${dep.nomDep}"></td>
+			      <td><a class="btn btn-info btn-xs" th:href="@{/edit}+${dep.id}" th:text="'Update'"></a></td>
+			      <td><a class="btn btn-danger btn-xs" th:href="@{/delete}+${dep.id}" th:text="'Delete'" onclick="return confirm('Do you want to Delete this information ?');"></a></td>
+			    </tr>
+			  </tbody>
+			</table>
+			
+		</div>
+	
+	</div>
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
+	</body>
+</html>
