@@ -8,7 +8,6 @@ target/
 .classpath
 .mvn/
 .settings/
-.project
 HELP.md
 mvnw
 mvnw.md
@@ -18,6 +17,7 @@ mvnw.md
 .apt_generated
 .classpath
 .factorypath
+.project
 .settings
 .springBeans
 .sts4-cache
