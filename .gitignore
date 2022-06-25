@@ -5,7 +5,6 @@ target/
 !**/src/test/**/target/
 
 
-.classpath
 .mvn/
 .settings/
 HELP.md
