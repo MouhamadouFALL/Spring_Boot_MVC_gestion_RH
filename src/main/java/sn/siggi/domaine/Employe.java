@@ -12,6 +12,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 /**
  * @author nabyFall
@@ -26,8 +28,11 @@ public class Employe implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@NotNull(message = "id is required")
 	private Integer id;
+	@NotEmpty(message="Name is required")
 	private String nom;
+	@NotEmpty(message="Name is required")
 	private String prenom;
 	
 	@ManyToOne
