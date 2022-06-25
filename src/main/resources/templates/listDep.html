@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>list Department</title>
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+		
+		<link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/carousel/">
+		
+		<!-- Custom styles for this template -->
+    	<link th:href="@{/css/carousel.css}" rel="stylesheet">
+	</head>
+	<body>
+	
+		<div th:replace="fragments/header :: header"></div>
+	<main>
+	
+		<div class="container overflow-hidden">
+		  <div class="row gx-5 mx-auto">
+		    <div class="col d-flex justify-content-center">
+		     <div  class="p-4"><a th:href="@{/addDep}" class="btn btn-primary btn-lg">Add Department</a></div>
+		    </div>
+		    <div class="col d-flex justify-content-center">
+		      <div class="p-4"><a th:href="@{/home}" class="btn btn-primary btn-lg">Home page</a></div>
+		    </div>
+		  </div>
+		</div>
+	
+		
+		
+		<!-- <div>
+			
+			<table class="table table-secondary table-striped">
+			  <thead>
+			    <tr class="table-success">
+			      <th scope="col">ID</th>
+			      <th scope="col">Department Name</th>
+			      <th scope="col">Update</th>
+			      <th scope="col">Delete</th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			    <tr th:each="dep : ${deps}">
+			      <th scope="row" th:text="${dep.id}"></th>
+			      <td th:text="${dep.nomDep}"></td>
+			      <td><a class="btn btn-info btn-xs" th:href="@{/edit}+${dep.id}" th:text="'Update'"></a></td>
+			      <td><a class="btn btn-danger btn-xs" th:href="@{/delete}+${dep.id}" th:text="'Delete'" onclick="return confirm('Do you want to Delete this information ?');"></a></td>
+			    </tr>
+			  </tbody>
+			</table>
+			
+		</div> -->
+		
+		<div class="row row-cols-1 row-cols-md-4 g-4">
+		<div class="col" style="width: 18rem;" th:each="dep : ${deps}">
+		<div class="card">
+		  <!-- <img src="..." class="card-img-top" alt="..."> -->
+		  <div class="card-body">
+		    <h5 class="card-title" th:text="${dep.nomDep}"></h5>
+		    <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+		  </div>
+		  <div class="card-body">
+		    <a class="card-link btn btn-primary" th:href="@{/edit}+${dep.id}" th:text="'Update'"></a>
+		    <a class="card-link btn btn-primary" th:href="@{/delete}+${dep.id}" th:text="'Delete'" onclick="confirm('Do you want to Delete this information ?');"></a>
+		  </div>
+		</div>
+		</div>
+		</div>
+	
+		<hr class="featurette-divider">
+	
+		<!-- FOOTER -->
+		<div th:replace="fragments/footer ::footer"></div>
+	
+	</main>
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
+	</body>
+</html>

@@ -29,12 +29,12 @@ public class DepartementController {
 	@Autowired
 	private DepartementService depService;
 	
-	@GetMapping("/list")
+	@GetMapping("/listDep")
 	public String listDep(Model model) {
 		
 		List<Departement> deps = depService.list();
 		model.addAttribute("deps", deps);
-		return "list";
+		return "listDep";
 	}
 	
 	@GetMapping("/addDep")
@@ -52,7 +52,7 @@ public class DepartementController {
 		if (result.hasErrors())
 			return "addDep";
 		depService.create(dep);
-		return "redirect:/list";
+		return "redirect:/listDep";
 	}
 	
 	// Modification Department
@@ -72,14 +72,14 @@ public class DepartementController {
 		if (result.hasErrors())
 			return "edit";
 		depService.update(dep);
-		return "redirect:/list";
+		return "redirect:/listDep";
 	}
 	
 	@GetMapping("/delete{id}")
 	public String delete(@PathVariable(value = "id") Integer id) {
 		
 		depService.delete(id);
-		return "redirect:/list";
+		return "redirect:/listDep";
 	}
 	
 	@GetMapping({"/", "/index", "/home", "/accueil"})
