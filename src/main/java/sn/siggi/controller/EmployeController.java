@@ -75,7 +75,9 @@ public class EmployeController {
 	public String editDetail(@PathVariable(value="id") Integer id, Model model) {
 		
 		Employe em = employeService.reseach(id);
+		List<Departement> deps = depService.list();
 		model.addAttribute("em", em);
+		model.addAttribute("deps", deps);
 		
 		return "editEmploy";
 	}

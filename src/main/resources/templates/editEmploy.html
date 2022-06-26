@@ -47,6 +47,15 @@
 		    		<div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('nom')}" th:errors="*{nom}">
 				</div>
 		    	<input type="text" th:field="*{nom}" class="form-control" />
+		    	
+		    	<div class="mb-3">
+				  	<label class="form-label">Choose Department :</label>
+					<select th:field="*{idDep}" class="form-select">
+					  <option th:value="${em.departement.id}" th:text="${em.departement.nomDep}" selected></option>
+					  <option th:each="dep : ${deps}" th:value="${dep.id}" th:text="${dep.nomDep}"></option>
+					</select>
+					<small class="form-text text-danger" th:if="${#fields.hasErrors('idDep')}" th:errors="*{idDep}"></small>
+				  </div>
 		 
 				<div class="d-flex justify-content-center m-4">
 		  			<button type="submit" class="btn btn-primary">Update</button>

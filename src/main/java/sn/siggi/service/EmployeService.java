@@ -44,8 +44,15 @@ public class EmployeService {
 	@Transactional
 	public void update(Employe e) {
 		
-		if (repo.existsById(e.getId()))
-			repo.save(e);
+		if (repo.existsById(e.getId())) {
+			Optional<Departement> optional = depRepo.findById(e.getIdDep());
+			if(optional.isPresent()) {
+				Departement dep = optional.get();
+				e.setDepartement(dep);
+				repo.save(e);
+			}
+		}
+		
 	}
 	
 	public Employe reseach(Integer id) {
