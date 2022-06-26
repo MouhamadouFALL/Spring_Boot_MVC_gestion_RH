@@ -4,7 +4,10 @@ target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 
-
+.mvn/
+.project
+.classpath
+mvnw.cmd
 .settings/
 HELP.md
 mvnw
