@@ -31,9 +31,9 @@
 		<div class="card">
 		  <!-- <img src="/images/img4.jpg" class="card-img-top" alt="..."> -->
 		  <div class="card-body">
-		    <h5 class="card-title" th:text="${em.nom}"></h5>
-		    <h5 class="card-title" th:text="${em.prenom}"></h5>
-		    <!-- <h5 class="card-title" th:text="${em.departement.nomDep}"></h5>  -->
+		    <h5 class="card-title" th:text="'Nom : ' + ${em.nom}"></h5>
+		    <h5 class="card-title" th:text="'Prenom : ' + ${em.prenom}"></h5>
+		    <h5 class="card-title" th:text="'Department : ' +  ${em.departement.nomDep}"></h5>
 		    <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
 		  </div>
 		  <div class="card-footer bg-transparent border-info d-flex justify-content-center">

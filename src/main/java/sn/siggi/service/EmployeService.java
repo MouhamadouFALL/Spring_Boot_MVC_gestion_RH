@@ -11,7 +11,9 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import sn.siggi.domaine.Departement;
 import sn.siggi.domaine.Employe;
+import sn.siggi.repository.DepartementRepository;
 import sn.siggi.repository.EmployeRepository;
 
 /**
@@ -23,12 +25,20 @@ public class EmployeService {
 	
 	@Autowired
 	private EmployeRepository repo;
+	@Autowired
+	private DepartementRepository depRepo;
 	
 	
 	@Transactional
 	public void create(Employe e) {
 		
-		repo.save(e);
+		Optional<Departement> optional = depRepo.findById(e.getIdDep());
+		if(optional.isPresent()) {
+			Departement dep = optional.get();
+			e.setDepartement(dep);
+			repo.save(e);
+		}
+		
 	}
 	
 	@Transactional

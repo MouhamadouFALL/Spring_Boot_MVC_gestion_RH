@@ -12,8 +12,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
 
 /**
  * @author nabyFall
@@ -28,7 +28,6 @@ public class Employe implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@NotNull(message = "id is required")
 	private Integer id;
 	@NotEmpty(message="Name is required")
 	private String nom;
@@ -38,6 +37,10 @@ public class Employe implements Serializable {
 	@ManyToOne
 	@JoinColumn(name = "id_dep")
 	private Departement departement;
+	
+	@Transient
+	private Integer idDep;
+	
 	
 	public Employe() {}
 
@@ -71,6 +74,14 @@ public class Employe implements Serializable {
 
 	public void setDepartement(Departement departement) {
 		this.departement = departement;
+	}
+
+	public Integer getIdDep() {
+		return idDep;
+	}
+
+	public void setIdDep(Integer idDep) {
+		this.idDep = idDep;
 	}
 
 }

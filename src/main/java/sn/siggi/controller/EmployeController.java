@@ -60,9 +60,12 @@ public class EmployeController {
 	@PostMapping("/saveEmploy")
 	public String save(@Valid @ModelAttribute("em") Employe em, BindingResult result, Model model) {
 		
-		if (result.hasErrors())
+		if (result.hasErrors()) {
+			// List<Departement> deps = depService.list();
+			// model.addAttribute("deps", deps);
 			return "addEmploy";
-		
+		}
+			
 		employeService.create(em);
 		return "redirect:/listEmploy";
 	}
